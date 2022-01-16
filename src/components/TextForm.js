@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function TextForm(props) {
-    const [Text, setText] = useState('Enter your text here')
+    const [Text, setText] = useState('')
     const handleUpperCase = () => {
         //console.log('Upper case' + Text)
         let newText = Text.toUpperCase()
@@ -11,9 +11,13 @@ export default function TextForm(props) {
         //console.log('On change')
         setText(event.target.value)
     }
+    const handleLowerCase = () => {
+        let newText = Text.toLowerCase()
+        setText(newText)
+    }
     return (
-        <form>
-            <div>
+        <>
+            <div className="container">
                 <h3>
                     {props.heading}
                 </h3>
@@ -27,10 +31,20 @@ export default function TextForm(props) {
                     >
                     </textarea>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={handleUpperCase}>
+                <button className="btn btn-primary mx-2" onClick={handleUpperCase}>
                     Convert To UpperCase
                 </button>
+                <button className="btn btn-primary mx-2" onClick={handleLowerCase}>
+                    Convert To LowerCase
+                </button>
             </div>
-        </form>
+            <div className="container my-3">
+                <h2>Your Text Summary</h2>
+                <p>{Text.split(" ").length} words and {Text.length} characters.</p>
+                <p>{ 0.008 * Text.split(" ").length} Minutes To Read</p>
+                <h3>Preview</h3>
+                <p>{Text}</p>
+            </div>
+        </>
     )
 }
