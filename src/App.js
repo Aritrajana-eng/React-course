@@ -1,19 +1,14 @@
 import './App.css';
 import Navbar from './components/Navbar'
-// let name = "Aritra"
-
-// const user = {
-//   firstName: "Aritra",
-//   lastname: "Jana"
-// }
-// function fullName (user) {
-//   return user.firstName + " " + user.lastname
-// }
+import TextForm from './components/TextForm'
 
 function App() {
   return (
     <>
     <Navbar title="TextUtils" aboutText="About TextUtils" />
+    <div className="container my-3">
+      <TextForm heading="Enter Your Text to Analyze" />
+    </div>
     </>
   );
 }
